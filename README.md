@@ -34,7 +34,7 @@ Rails では、サービスクラスやモデルが肥大化しやすく、ビ�
 Gemfile に以下を追加：
 
 ```ruby
-gem 'operation_model_scaffold', git: 'https://github.com/shu0115/operation_model_scaffold.git'
+gem 'operation_model_scaffold'
 ```
 
 インストール：
