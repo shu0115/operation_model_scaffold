@@ -3,39 +3,36 @@
 require_relative "lib/operation_model_scaffold/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "operation_model_scaffold"
-  spec.version = OperationModelScaffold::VERSION
-  spec.authors = ["shu0115"]
-  spec.email = ["s.matsumoto0115@gmail.com"]
+  spec.name          = "operation_model_scaffold"
+  spec.version       = OperationModelScaffold::VERSION
+  spec.authors       = ["shu0115"]
+  spec.email         = ["s.matsumoto0115@gmail.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
-  spec.license = "MIT"
+  spec.summary       = "Rails generator for creating an Operations layer scaffold."
+  spec.description   = "This gem provides a generator to scaffold an Operations layer in your Rails app, helping structure application logic in a modular and maintainable way."
+
+  spec.homepage      = "https://github.com/shu0115/operation_model_scaffold"
+  spec.license       = "MIT"
   spec.required_ruby_version = ">= 3.1.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
+  spec.metadata["homepage_uri"]    = spec.homepage
+  spec.metadata["source_code_uri"] = "https://github.com/shu0115/operation_model_scaffold"
+  spec.metadata["changelog_uri"]   = "https://github.com/shu0115/operation_model_scaffold/releases"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  # allowed_push_host is only needed if you push to a private gem server
+  # It is not required for public RubyGems.org
+  # spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  gemspec = File.basename(__FILE__)
   spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
     ls.readlines("\x0", chomp: true).reject do |f|
-      (f == gemspec) ||
-        f.start_with?(*%w[bin/ test/ spec/ features/ .git .github appveyor Gemfile])
+      f.start_with?(*%w[bin/ test/ spec/ features/ .git .github appveyor Gemfile])
     end
   end
-  spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
-
-  # For more information and examples about making a new gem, check out our
-  # guide at: https://bundler.io/guides/creating_gem.html
+  # Add runtime dependencies here, if any.
+  # spec.add_dependency "rails", ">= 6.1"
 end

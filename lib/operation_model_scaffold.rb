@@ -6,4 +6,4 @@ module OperationModelScaffold
   class Error < StandardError; end
 end
 
-require_relative "generators/operation_model/scaffold/scaffold_generator"
+require_relative "generators/operation_model/scaffold_generator"
