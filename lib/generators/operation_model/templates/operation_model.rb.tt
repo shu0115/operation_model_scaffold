@@ -1,0 +1,4 @@
+module Operations::<%= @model_name.camelize %>
+  class << self
+  end
+end
