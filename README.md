@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
 
-**Operation Model Scaffold** は、Rails アプリケーションにおける **Operations レイヤー** のScaffoldを生成するジェネレータ Gem です。
+**Operation Model Scaffold** は、Rails アプリケーションにおける **Operations レイヤー** の Scaffold を生成するジェネレータ Gem です。
 
 このツールを使用することで、ビジネスロジックの責務を明確に分離し、保守性と再利用性を高めるためのアーキテクチャ構築をサポートします。
 
@@ -22,9 +22,10 @@ Rails では、サービスクラスやモデルが肥大化しやすく、ビ�
 
 ## ✨ 特徴
 
-- `rails generate operation_model:scaffold` コマンドで `app/models/operations/` とその中の `README.md` を自動生成
-- Operationsレイヤーの導入を簡素化し、クリーンアーキテクチャをサポート
-- Rails のジェネレータ機能を活用した軽量かつ柔軟な統合
+- `bin/rails generate operation_model:scaffold` コマンドで `app/models/operations/` を自動生成
+- `README.md` や `utility.rb` などのベースファイルを生成
+- `app/models/` 配下にある全モデルに対応する Operations モジュールを自動生成
+- `application_record.rb` や `utility.rb` など、特定ファイルは自動生成対象から除外
 
 ---
 
@@ -52,14 +53,18 @@ bundle install
 bin/rails generate operation_model:scaffold
 ```
 
-生成される構造：
+このコマンドにより、以下のような構造が作成されます：
 
 ```
 app/models/operations/
-└── README.md     # Operations レイヤーの導入方針を記述するテンプレート
+├── README.md                   # Operations レイヤーのガイドライン
+├── user.rb                     # Operations::User モジュール（app/models/user.rb に対応）
+├── post.rb                     # Operations::Post モジュール（app/models/post.rb に対応）
+└── use_cases/
+    └── utility.rb              # 共通ユースケース向けユーティリティ
 ```
 
-このテンプレートファイルは、開発チーム内でOperationsの利用方法や命名規則などをドキュメント化するために活用できます。
+※ `application_record.rb` や `utility.rb` といった特殊用途のモデルは自動生成の対象外です。
 
 ---
 
