@@ -1,43 +1,49 @@
-# OperationModelScaffold
+# Operation Model Scaffold
 
-TODO: Delete this and the text below, and describe your gem
+Operation Model Scaffold は、Rails アプリケーションにおける Operations レイヤーのスキャフォールドを生成するジェネレータ Gem です。
+このツールを使用することで、アプリケーションのビジネスロジックを整理し、保守性と再利用性を高めることができます。
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/operation_model_scaffold`. To experiment with that code, run `bin/console` for an interactive prompt.
+## 特徴
 
-## Installation
+- `rails generate operation_model:scaffold` コマンドで、`app/models/operations/` ディレクトリとその中の `README.md` を自動生成
+- Operations レイヤーの導入を簡素化し、クリーンアーキテクチャの実現をサポート
+- Rails のジェネレータ機能を活用したシームレスな統合
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+## インストール
 
-Install the gem and add to the application's Gemfile by executing:
+Gemfile に以下を追加してください：
 
-```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```ruby
+gem 'operation_model_scaffold', git: 'https://github.com/shu0115/operation_model_scaffold.git'
 ```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+その後、以下のコマンドを実行してインストールします：
 
 ```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+bundle install
 ```
 
-## Usage
+## 使用方法
 
-TODO: Write usage instructions here
+ジェネレータを実行して、Operations レイヤーのスキャフォールドを生成します：
 
-## Development
+```bash
+bin/rails generate operation_model:scaffold
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+このコマンドにより、以下の構造が作成されます：
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+app/models/operations/
+└── README.md
+```
 
-## Contributing
+`README.md` には、Operations レイヤーの使用方法やベストプラクティスに関する情報を記述できます。
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/shu0115/operation_model_scaffold. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/shu0115/operation_model_scaffold/blob/master/CODE_OF_CONDUCT.md).
+## ライセンス
 
-## License
+このプロジェクトは [MIT ライセンス](LICENSE.txt) の下でライセンスされています。
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+## 作者
 
-## Code of Conduct
-
-Everyone interacting in the OperationModelScaffold project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/shu0115/operation_model_scaffold/blob/master/CODE_OF_CONDUCT.md).
+- [shu0115](https://github.com/shu0115)
