@@ -1,4 +1,4 @@
-module Operations::Utility
+module Operations::UseCases::Utility
   class << self
   end
 end
